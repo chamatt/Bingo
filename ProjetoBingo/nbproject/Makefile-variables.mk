@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=projetobringo
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/projetobringo
+CND_ARTIFACT_NAME_Debug=projetobingo
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/projetobingo
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=projetobringo.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/projetobringo.tar
+CND_PACKAGE_NAME_Debug=projetobingo.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/projetobingo.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=projetobringo
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/projetobringo
+CND_ARTIFACT_NAME_Release=projetobingo
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/projetobingo
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=projetobringo.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/projetobringo.tar
+CND_PACKAGE_NAME_Release=projetobingo.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/projetobingo.tar
 #
 # include compiler specific variables
 #
