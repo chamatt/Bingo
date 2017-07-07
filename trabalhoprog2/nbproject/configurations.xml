@@ -4,13 +4,19 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>tCartelas.h</itemPath>
       <itemPath>tGeradorAle.h</itemPath>
+      <itemPath>tJogador.h</itemPath>
+      <itemPath>tJogo.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
+      <itemPath>tCartelas.c</itemPath>
       <itemPath>tGeradorAle.c</itemPath>
+      <itemPath>tJogador.c</itemPath>
+      <itemPath>tJogo.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de Recurso"
@@ -40,9 +46,21 @@
       </compileType>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="tCartelas.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tCartelas.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="tGeradorAle.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tGeradorAle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tJogador.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tJogador.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tJogo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tJogo.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -67,9 +85,21 @@
       </compileType>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="tCartelas.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tCartelas.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="tGeradorAle.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tGeradorAle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tJogador.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tJogador.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tJogo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tJogo.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

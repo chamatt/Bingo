@@ -36,7 +36,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/tGeradorAle.o
+	${OBJECTDIR}/tCartelas.o \
+	${OBJECTDIR}/tGeradorAle.o \
+	${OBJECTDIR}/tJogador.o \
+	${OBJECTDIR}/tJogo.o
 
 
 # C Compiler Flags
@@ -68,10 +71,25 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
+${OBJECTDIR}/tCartelas.o: tCartelas.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tCartelas.o tCartelas.c
+
 ${OBJECTDIR}/tGeradorAle.o: tGeradorAle.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tGeradorAle.o tGeradorAle.c
+
+${OBJECTDIR}/tJogador.o: tJogador.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tJogador.o tJogador.c
+
+${OBJECTDIR}/tJogo.o: tJogo.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tJogo.o tJogo.c
 
 # Subprojects
 .build-subprojects:
