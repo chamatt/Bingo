@@ -4,7 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
-      <itemPath>tCartelas.h</itemPath>
+      <itemPath>tArquivos.h</itemPath>
+      <itemPath>tCartela.h</itemPath>
       <itemPath>tGeradorAle.h</itemPath>
       <itemPath>tJogador.h</itemPath>
       <itemPath>tJogo.h</itemPath>
@@ -13,7 +14,8 @@
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>tCartelas.c</itemPath>
+      <itemPath>tArquivos.c</itemPath>
+      <itemPath>tCartela.c</itemPath>
       <itemPath>tGeradorAle.c</itemPath>
       <itemPath>tJogador.c</itemPath>
       <itemPath>tJogo.c</itemPath>
@@ -46,9 +48,13 @@
       </compileType>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="tCartelas.c" ex="false" tool="0" flavor2="0">
+      <item path="tArquivos.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="tCartelas.h" ex="false" tool="3" flavor2="0">
+      <item path="tArquivos.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tCartela.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tCartela.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tGeradorAle.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -85,9 +91,13 @@
       </compileType>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="tCartelas.c" ex="false" tool="0" flavor2="0">
+      <item path="tArquivos.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="tCartelas.h" ex="false" tool="3" flavor2="0">
+      <item path="tArquivos.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tCartela.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tCartela.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tGeradorAle.c" ex="false" tool="0" flavor2="0">
       </item>

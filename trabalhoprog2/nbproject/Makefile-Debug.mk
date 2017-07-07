@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/tCartelas.o \
+	${OBJECTDIR}/tArquivos.o \
+	${OBJECTDIR}/tCartela.o \
 	${OBJECTDIR}/tGeradorAle.o \
 	${OBJECTDIR}/tJogador.o \
 	${OBJECTDIR}/tJogo.o
@@ -71,10 +72,15 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
-${OBJECTDIR}/tCartelas.o: tCartelas.c
+${OBJECTDIR}/tArquivos.o: tArquivos.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tCartelas.o tCartelas.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tArquivos.o tArquivos.c
+
+${OBJECTDIR}/tCartela.o: tCartela.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tCartela.o tCartela.c
 
 ${OBJECTDIR}/tGeradorAle.o: tGeradorAle.c
 	${MKDIR} -p ${OBJECTDIR}

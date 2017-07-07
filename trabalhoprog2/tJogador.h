@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   tJogador.h
- * Author: mathe
- *
- * Created on 6 de Julho de 2017, 21:15
- */
+#include "tCartela.h"
 
 #ifndef TJOGADOR_H
 #define TJOGADOR_H
@@ -18,6 +7,22 @@
 extern "C" {
 #endif
 
+    
+    typedef struct{
+        char nome[201];
+        int quantCartelas;
+        tCartela cartelas[200];
+    }tJogador;
+    
+    tJogador InicializaNomeParam(tJogador a_jogador);
+    tJogador InicializarQuantCartelasParam(tJogador a_jogador);
+    tJogador InicializaCartelasDoJogador(tJogador a_jogador, int a_quantCartelas);
+    int ChecarSeVenceu(tJogador a_jogador);
+    char* ObterNome(tJogador a_jogador);
+    
+    
+    
+    
 
 
 

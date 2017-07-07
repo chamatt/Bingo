@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tJogador.h"
+#include "tCartela.h"
 #include "tGeradorAle.h"
-
-
-
 
 
 
