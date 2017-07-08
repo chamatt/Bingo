@@ -13,13 +13,16 @@ extern "C" {
         int seed;
         int pedras;
         int quantJogadores;
-        tArquivos arquivos;
+        int linhas;
+        int colunas;
+        int pedrasMarcadas[900];
         tJogador jogador[20];
     }tJogo;
     
     void ExibirMensagemDeErro(char* mensagem);
-    tJogo CriarJogo(tJogo a_jogo);
-    int GerarArquivoDeCartelas(tJogo a_jogo);
+    tJogo CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos);
+    void LeConfiguracoes(tJogo *a_jogo, tArquivos *a_arquivos, FILE* config);
+    int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos);
     void RealizarJogo(tJogo);
     tJogo ImprimirProgressoJogo(tJogo a_jogo);
     void GerarEstatisticas(tJogo a_jogo);

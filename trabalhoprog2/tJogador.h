@@ -14,9 +14,10 @@ extern "C" {
         tCartela cartelas[200];
     }tJogador;
     
-    tJogador InicializaNomeParam(tJogador a_jogador);
-    tJogador InicializarQuantCartelasParam(tJogador a_jogador);
-    tJogador InicializaCartelasDoJogador(tJogador a_jogador, int a_quantCartelas);
+    void InicializaNomeParam(FILE* config, tJogador *a_jogador, int a_id);
+    void InicializaQuantCartelasParam(FILE* config, tJogador *a_jogador, int a_id);
+    void InicializaCartelasDoJogador(tJogador *a_jogador, int a_quantCartelas, int a_id, int linhas, int colunas);
+    void ImprimeCartelasJogador(tJogador *a_jogador, FILE* arqcartelas);
     int ChecarSeVenceu(tJogador a_jogador);
     char* ObterNome(tJogador a_jogador);
     

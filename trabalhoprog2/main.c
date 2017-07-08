@@ -7,8 +7,7 @@ int main(int argc, char** argv) {
     tJogo jogo;
     tArquivos arquivos;
     arquivos = ParametroDeInicializacao(argc, argv);
-    printf("%s", arquivos.estatisticas_jogo);
-    
+    CriarJogo(&jogo, &arquivos);
     return (EXIT_SUCCESS);
 }
 

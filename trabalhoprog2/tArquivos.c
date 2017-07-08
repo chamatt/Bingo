@@ -49,3 +49,4 @@ tArquivos ConcatenaCaminhoVariavel(tArquivos a_arquivos)
      strcat(a_arquivos.estatisticas_jogo, estatisticas_jogo);
      return a_arquivos;
 }
+
