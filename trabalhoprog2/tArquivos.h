@@ -26,9 +26,9 @@ extern "C" {
         char estatisticas_jogo[1001];
     }tArquivos;
 
- tArquivos ParametroDeInicializacao(int a_argc, char** argv);
- tArquivos CopiaCaminhoAbsoluto(char* caminhoAbsoluto, tArquivos a_arquivos);
- tArquivos ConcatenaCaminhoVariavel(tArquivos a_arquivos);
+ void ParametroDeInicializacao(int a_argc, char** argv, tArquivos *a_arquivos);
+ void CopiaCaminhoAbsoluto(char* caminhoAbsoluto, tArquivos *a_arquivos);
+ void ConcatenaCaminhoVariavel(tArquivos *a_arquivos);
 
 #ifdef __cplusplus
 }

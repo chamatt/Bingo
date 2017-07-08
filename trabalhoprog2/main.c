@@ -6,7 +6,7 @@
 int main(int argc, char** argv) {
     tJogo jogo;
     tArquivos arquivos;
-    arquivos = ParametroDeInicializacao(argc, argv);
+    ParametroDeInicializacao(argc, argv, &arquivos);
     CriarJogo(&jogo, &arquivos);
     return (EXIT_SUCCESS);
 }

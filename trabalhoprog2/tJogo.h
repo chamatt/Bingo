@@ -20,7 +20,7 @@ extern "C" {
     }tJogo;
     
     void ExibirMensagemDeErro(char* mensagem);
-    tJogo CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos);
+    void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos);
     void LeConfiguracoes(tJogo *a_jogo, tArquivos *a_arquivos, FILE* config);
     int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos);
     void RealizarJogo(tJogo);

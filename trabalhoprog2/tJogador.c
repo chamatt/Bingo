@@ -7,29 +7,32 @@
 
 
 
- void InicializaNomeParam(FILE* config, tJogador *a_jogador, int a_id)
+ void InicializaNomeParam(FILE* config, tJogador *a_jogador)
  {
-     fscanf(config, " %[^\n]s", a_jogador[a_id]->nome);
+     fscanf(config, " %[^\n^;]s", a_jogador->nome);
  }
 
- void InicializaQuantCartelasParam(FILE* config, tJogador *a_jogador, int a_id)
+ void InicializaQuantCartelasParam(FILE* config, tJogador *a_jogador)
  {
-     fscanf(config, " %[^\n]s", a_jogador[a_id]->quantCartelas);
+     fscanf(config, ";%d", &(a_jogador->quantCartelas));
  }
- void InicializaCartelasDoJogador(tJogador *a_jogador, int a_quantCartelas, int a_id, int a_linhas, int a_colunas){
+ void InicializaCartelasDoJogador(tJogador *a_jogador, int* a_id, int a_linhas, int a_colunas, int pedras){
      int i;
-     for(i = 0; i < a_quantCartelas; i++)
+     for(i = 0; i < a_jogador->quantCartelas; i++)
      {
-         CriarCartela(&(a_jogador->cartelas[i]), a_id, i, a_linhas, a_colunas);
+         CriarCartela(&(a_jogador->cartelas[i]), a_id, a_linhas, a_colunas, pedras);
+         (*a_id)++;
      }
  }
  
  void ImprimeCartelasJogador(tJogador *a_jogador, FILE* arqcartelas)
  {
+     int i;
      fprintf(arqcartelas, "Jogador:%s\n", a_jogador->nome);
      for(i = 0; i < a_jogador->quantCartelas; i++)
      {
-         ImprimirCartelaArquivo(*(a_jogador->cartelas[i]), arqcartelas);
+         ImprimirCartelaArquivo(&(a_jogador->cartelas[i]), arqcartelas);
+         fprintf(arqcartelas, "\n");
      }
  }
  

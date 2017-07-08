@@ -4,26 +4,28 @@
 #include "tJogo.h"
 #include "tGeradorAle.h"
 #include "tArquivos.h"
-#include "tJogador"
-#define NULL 0
+#include "tJogador.h"
 
 void ExibirMensagemDeErro(char* mensagem){
     printf("%s\n", mensagem);
 }
 
-tJogo CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
+void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
 {
+    
     FILE* config;
-    int i;
-    config = fopen(a_arquivos.jogo_config, "r");
+    int i, idinit = 0;
+    int* id = &idinit;
+    config = fopen(a_arquivos->jogo_config, "r");
     LeConfiguracoes(a_jogo, a_arquivos, config);
     for(i = 0; i<a_jogo->quantJogadores; i++)
     {
-        InicializaNomeParam(config, &(a_jogo->jogador), i);
-        InicializaQuantCartelasParam(config, &(a_jogo->jogador), i);
-        InicializaCartelasDoJogador(&(a_jogo->jogador), a_jogo->jogador->quantCartelas, i, a_jogo->linhas, a_jogo->colunas);
+        InicializaNomeParam(config, &(a_jogo->jogador[i]));
+        InicializaQuantCartelasParam(config, &(a_jogo->jogador[i]));
+        InicializaCartelasDoJogador(&(a_jogo->jogador[i]), id, a_jogo->linhas, a_jogo->colunas, a_jogo->pedras);
 
     }
+    GerarArquivoDeCartelas(a_jogo, a_arquivos);
     fclose(config);
     
 }
@@ -36,11 +38,11 @@ void LeConfiguracoes(tJogo *a_jogo, tArquivos *a_arquivos, FILE* config)
         strcat(mensagem, a_arquivos->caminhoPadrao);
         strcat(mensagem, "/input");
         ExibirMensagemDeErro(mensagem);
-        exit();
+        exit(0);
     }
     else{
-        fscanf(config, "%d;%d;%d;%d;%d", a_jogo->seed, a_jogo->pedras, 
-                a_jogo->linhas, a_jogo->colunas, a_jogo->quantJogadores);
+        fscanf(config, "%d;%d;%d;%d;%d", &(a_jogo->seed), &(a_jogo->pedras), 
+                &(a_jogo->linhas), &(a_jogo->colunas), &(a_jogo->quantJogadores));
     }
 }
 
@@ -54,6 +56,7 @@ int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos)
     for(i = 0; i < a_jogo->quantJogadores; i++)
     {
         ImprimeCartelasJogador(&(a_jogo->jogador[i]), arqcartelas);
+        fprintf(arqcartelas, "\n");
     }
     
 }

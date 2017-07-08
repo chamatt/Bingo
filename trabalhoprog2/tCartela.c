@@ -4,20 +4,20 @@
 #include "tCartela.h"
 #include "tGeradorAle.h"
 
-void CriarCartela(tCartela *a_cartela, int id, int linhas, int colunas)
+void CriarCartela(tCartela *a_cartela, int *id, int linhas, int colunas, int pedras)
 {
     int qntNumeros = linhas * colunas, i, j, k, proxNum;
-    a_cartela->id = id;
+    a_cartela->id = *id;
     a_cartela->linhas = linhas;
     a_cartela->colunas = colunas;
-    ReiniciaGerador(id, qntNumeros);
+    ReiniciaGerador(*id, pedras);
     int vetor[qntNumeros];
     for(i = 0; i < qntNumeros; i++)
     {
         proxNum = GeraProxNumero();
         vetor[i] = proxNum;
     }
-    OrdenaVetor(vetor[], qntNumeros);
+    OrdenaVetor(vetor, qntNumeros);
     k = 0;
     for(int i = 0; i < colunas; i++)
     {
@@ -72,12 +72,13 @@ int OrdemDecrescente (int vetor[], int qntNumeros)
 void ImprimirCartelaArquivo(tCartela *a_cartela, FILE* arqcartelas)
 {
     int i, j;
+    fprintf(arqcartelas, "Cartela ID:%d\n", a_cartela->id);
     for(i = 0; i < a_cartela->linhas; i++)
     {
         fprintf(arqcartelas, "\t|");
         for(j = 0; j < a_cartela->colunas; j++)
         {
-            fprintf(arqcartelas, "%03d|");
+            fprintf(arqcartelas, "%03d|", a_cartela->cartela[i][j]);
         }
         fprintf(arqcartelas, "\n");
     }

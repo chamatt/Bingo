@@ -13,7 +13,7 @@ extern "C" {
         int cartela[20][20];
     }tCartela;
     
-    void CriarCartela(tCartela *a_cartela, int id, int index, int linhas, int colunas);
+    void CriarCartela(tCartela *a_cartela, int *id, int linhas, int colunas, int pedras);
     int ObterID(tCartela a_cartela);
     void OrdenaVetor(int vet[], int qntNumeros);
     int OrdemCrescente (int vetor[], int qntNumeros);
