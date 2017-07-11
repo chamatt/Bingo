@@ -17,13 +17,19 @@ extern "C" {
         int colunas;
         int pedrasMarcadas[900];
         tJogador jogador[20];
+        char vencedores[1001][1001];
     }tJogo;
     
     void ExibirMensagemDeErro(char* mensagem);
     void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos);
     void LeConfiguracoes(tJogo *a_jogo, tArquivos *a_arquivos, FILE* config);
     int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos);
-    void RealizarJogo(tJogo);
+    void RealizarJogo(tJogo *a_jogo, tArquivos *a_arquivos);
+    void MarcarPedra(tJogo *a_jogo, int numSorteado);
+    int ChecarSeJogadoresVenceram(tJogo *a_jogo);
+    void ImprimirVencedores(FILE* arq, tJogo *a_jogo, int qntVenceu);
+    
+    
     tJogo ImprimirProgressoJogo(tJogo a_jogo);
     void GerarEstatisticas(tJogo a_jogo);
     tJogo OrdenarCartelasMarcadas(tJogo a_jogo);

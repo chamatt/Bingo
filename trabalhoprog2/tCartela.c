@@ -84,7 +84,43 @@ void ImprimirCartelaArquivo(tCartela *a_cartela, FILE* arqcartelas)
     }
 }
 
-int ChecarSeCompleta(tCartela a_cartela);
+
+
+
+
+
+void MarcarPedraCartela(tCartela *a_cartela, int numSorteado)
+{
+    int i, j;
+    for(i = 0; i<a_cartela->colunas; i++)
+    {
+        for(j = 0; j<a_cartela->linhas; j++)
+        {
+            if(a_cartela->cartela[j][i] == numSorteado)
+            {
+                a_cartela->cartela[j][i] = -1;
+                a_cartela->qntPedrasMarcadas += 1;
+            }
+        }
+        
+    }
+}
+
+int ChecarSeCompleta(tCartela *a_cartela){
+    int i, j, count = 0;
+    int qntNumeros = a_cartela->linhas * a_cartela->colunas;
+    for(i = 0; i<a_cartela->colunas; i++)
+    {
+        for(j = 0; j<a_cartela->linhas; j++)
+        {
+            if(a_cartela->cartela[j][i] == -1);
+            count++;
+        }
+    }
+    if(count == qntNumeros)
+        return 1;
+    return 0;
+}
 int ObterQuantMarcada(tCartela a_cartela); 
 int EhQuantMarcada1MaiorQue2(tCartela a_cartela1, tCartela a_cartela2);
 

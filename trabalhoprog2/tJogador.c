@@ -35,7 +35,25 @@
          fprintf(arqcartelas, "\n");
      }
  }
- 
-    int ChecarSeVenceu(tJogador a_jogador);
 
 
+void MarcarPedraJogador(tJogador *a_jogador, int numSorteado)
+    {
+        int i;
+        
+        for(i = 0; i < a_jogador->quantCartelas; i++)
+        {
+            a_jogador->cartelas[i].qntPedrasMarcadas = 0;
+            MarcarPedraCartela(&(a_jogador->cartelas[i]), numSorteado);
+        }
+        
+    }
+
+int ChecarSeVenceu(tJogador *a_jogador)
+    {
+        int i;
+        for(i = 0; i < a_jogador->quantCartelas; i++)
+        {
+            ChecarSeCompleta(&(a_jogador->cartelas[i]));  
+        }
+    }
