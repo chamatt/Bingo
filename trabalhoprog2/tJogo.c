@@ -6,9 +6,6 @@
 #include "tArquivos.h"
 #include "tJogador.h"
 
-void ExibirMensagemDeErro(char* mensagem){
-    printf("%s\n", mensagem);
-}
 
 void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
 {
@@ -16,7 +13,8 @@ void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
     FILE* config;
     int i, idinit = 0;
     int* id = &idinit;
-    config = fopen(a_arquivos->jogo_config, "r");
+    AbreLeArquivo(config, a_arquivos->jogo_config);
+    //config = fopen(a_arquivos->jogo_config, "r");
     LeConfiguracoes(a_jogo, a_arquivos, config);
     for(i = 0; i<a_jogo->quantJogadores; i++)
     {
@@ -34,11 +32,7 @@ void LeConfiguracoes(tJogo *a_jogo, tArquivos *a_arquivos, FILE* config)
     int i;
     if(!config)
     {
-        char mensagem[1001] = "ERRO: Nao foi possível ler o arquivo <jogo_config.txt> localizado em:\n";
-        strcat(mensagem, a_arquivos->caminhoPadrao);
-        strcat(mensagem, "/input");
-        ExibirMensagemDeErro(mensagem);
-        exit(0);
+        ExibirErroNaLeituraConfig(a_arquivos);
     }
     else{
         fscanf(config, "%d;%d;%d;%d;%d", &(a_jogo->seed), &(a_jogo->pedras), 
@@ -50,9 +44,17 @@ int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos)
 {
     FILE* arqcartelas;
     int i;
-    arqcartelas = fopen(a_arquivos->cartelas_jogador, "w+");
+    CriaAbreArquivo(arqcartelas, a_arquivos->cartelas_jogador);
+    if(!arqcartelas)
+    {
+        ExibirErroAoGerarCartelas();
+        exit(0);
+    }
+    /*
+     * arqcartelas = fopen(a_arquivos->cartelas_jogador, "w+");
     fclose(arqcartelas);
     arqcartelas = fopen(a_arquivos->cartelas_jogador, "a+");
+     * */
     for(i = 0; i < a_jogo->quantJogadores; i++)
     {
         ImprimeCartelasJogador(&(a_jogo->jogador[i]), arqcartelas);
@@ -68,7 +70,7 @@ void RealizarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
 {
     int numSorteado, qntVenceu, i;
     FILE* arqsaida;
-    arqsaida = CriaAbreArquivo(arqsaida, a_arquivos->saida);
+    //arqsaida = CriaAbreArquivo(arqsaida, a_arquivos->saida);
     /* Cria o arquivo se não existir, apaga conteúdo se existir 
      * arqsaida = fopen(a_arquivos->saida, "w+");
     fclose(arqsaida);
@@ -102,13 +104,14 @@ void MarcarPedra(tJogo *a_jogo, int numSorteado)
 int ChecarSeJogadoresVenceram(tJogo *a_jogo)
 {
     int i, venceu, qntVenceu = 0;
+    char nome[1001];
     for(i = 0; i < a_jogo->quantJogadores; i++)
     {
-        venceu = 0;
         venceu = ChecarSeVenceu(&(a_jogo->jogador[i]));
         if(venceu)
         {
-            strcpy(a_jogo->vencedores[qntVenceu], a_jogo->jogador[i].nome);
+            ObterNome(nome, a_jogo->jogador[i]);
+            strcpy(a_jogo->vencedores[qntVenceu], nome);
             qntVenceu++;
         }
        
@@ -166,7 +169,7 @@ void ImprimirProgressoJogo(tJogo *a_jogo, FILE* arqsaida)
     for(i = 0; i < a_jogo->quantJogadores; i++)
     {
         ImprimeProgressoJogador(&(a_jogo->jogador[i]), arqsaida);
-        ImprimirNoArquivoETela(arqsaida, "\n");
+        printf("\n");
         //fprintf(arqsaida, "\n");
     }
 }

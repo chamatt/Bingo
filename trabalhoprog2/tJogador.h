@@ -17,6 +17,7 @@ extern "C" {
     void InicializaNomeParam(FILE* config, tJogador *a_jogador);
     void InicializaQuantCartelasParam(FILE* config, tJogador *a_jogador);
     void InicializaCartelasDoJogador(tJogador *a_jogador, int* a_id,  int linhas, int colunas, int pedras);
+    void ObterNome(char* nome, tJogador a_jogador);
     void ImprimeCartelasJogador(tJogador *a_jogador, FILE* arqcartelas);
     void MarcarPedraJogador(tJogador *a_jogador, int numSorteado);
     void ImprimeProgressoJogador(tJogador *a_jogador, FILE* arqsaida);

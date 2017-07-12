@@ -4,6 +4,24 @@
 #include "tArquivos.h"
 #include "tJogo.h"
 
+void ExibirMensagemDeErro(char* mensagem){
+    printf("%s\n", mensagem);
+}
+void ExibirErroNaLeituraConfig(tArquivos *a_arquivos)
+{
+    char mensagem[1001] = "ERRO: Nao foi possível ler o arquivo <jogo_config.txt> localizado em:\n";
+    strcat(mensagem, a_arquivos->caminhoPadrao);
+    strcat(mensagem, "/input");
+    ExibirMensagemDeErro(mensagem);
+    exit(0);
+}
+
+void ExibirErroAoGerarCartelas()
+{
+    printf("ERRO: Nao foi possível salvar arquivo com as cartelas dos jogadores.");
+}
+
+
  void ParametroDeInicializacao(int a_argc, char** argv, tArquivos *a_arquivos)
  {       
      /* Checa se foi passado o argumento referente a localização dos arquivos, 
@@ -45,9 +63,15 @@ void ConcatenaCaminhoVariavel(tArquivos *a_arquivos)
      strcat(a_arquivos->estatisticas_jogo, estatisticas_jogo);
 }
 
+FILE* AbreLeArquivo(FILE* arq, char* caminho)
+{
+    arq = fopen(caminho, "r");
+}
+
 FILE* CriaAbreArquivo(FILE* arq, char* caminho)
 {
-    arq = fopen(caminho, "w+");
+    tArquivos arquivos;
+    //arq = fopen(caminho, "w+");
     fclose(arq);
     arq = fopen(caminho, "a+");
     return arq;
@@ -56,5 +80,5 @@ FILE* CriaAbreArquivo(FILE* arq, char* caminho)
  void ImprimirNoArquivoETela(FILE* arq, char* string)
  {
      fprintf(arq, "%s", string);
-     printf("%s", string);
+     
  }

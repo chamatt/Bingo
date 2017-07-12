@@ -127,26 +127,26 @@ int ChecarSeCompleta(tCartela *a_cartela){
 void ImprimirProgressoCartela(tCartela *a_cartela, FILE* arqsaida)
 {
     int i, j;
-    fprintf(arqsaida, "Cartela ID:%d\n", a_cartela->id);
+    //fprintf(arqsaida, "Cartela ID:%d\n", a_cartela->id);
     printf("Cartela ID:%d\n", a_cartela->id);
     for(i = 0; i < a_cartela->linhas; i++)
     {
-        fprintf(arqsaida, "\t|");
+        //fprintf(arqsaida, "\t|");
         printf("\t|");
         for(j = 0; j < a_cartela->colunas; j++)
         {
             if(a_cartela->cartela[i][j] == -1)
             {
-                fprintf(arqsaida, "---|");
+                //fprintf(arqsaida, "---|");
                 printf("---|");
             }
             else
             {
-                fprintf(arqsaida, "%03d|", a_cartela->cartela[i][j]);
+                //fprintf(arqsaida, "%03d|", a_cartela->cartela[i][j]);
                 printf("%03d|", a_cartela->cartela[i][j]);
             }
         }
-        fprintf(arqsaida, "\n");
+        //fprintf(arqsaida, "\n");
         printf("\n");
     }
 }

@@ -31,6 +31,9 @@ extern "C" {
  void ConcatenaCaminhoVariavel(tArquivos *a_arquivos);
  FILE* CriaAbreArquivo(FILE* arq, char* caminho);
  void ImprimirNoArquivoETela(FILE* arq, char* string);
+ FILE* AbreLeArquivo(FILE* arq, char* caminho);
+ void ExibirErroAoGerarCartelas();
+ void ExibirErroNaLeituraConfig(tArquivos *a_arquivos);
 
 #ifdef __cplusplus
 }

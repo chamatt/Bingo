@@ -29,8 +29,6 @@ extern "C" {
     void MarcarPedra(tJogo *a_jogo, int numSorteado);
     int ChecarSeJogadoresVenceram(tJogo *a_jogo);
     void ImprimirVencedores(FILE* arq, tJogo *a_jogo, int qntVenceu);
-    
-    
     void ImprimirProgressoJogo(tJogo *a_jogo, FILE* arqsaida);
     void GerarEstatisticas(tJogo a_jogo);
     tJogo OrdenarCartelasMarcadas(tJogo a_jogo);
