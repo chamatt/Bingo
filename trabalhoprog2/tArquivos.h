@@ -29,6 +29,8 @@ extern "C" {
  void ParametroDeInicializacao(int a_argc, char** argv, tArquivos *a_arquivos);
  void CopiaCaminhoAbsoluto(char* caminhoAbsoluto, tArquivos *a_arquivos);
  void ConcatenaCaminhoVariavel(tArquivos *a_arquivos);
+ FILE* CriaAbreArquivo(FILE* arq, char* caminho);
+ void ImprimirNoArquivoETela(FILE* arq, char* string);
 
 #ifdef __cplusplus
 }

@@ -43,17 +43,31 @@ void MarcarPedraJogador(tJogador *a_jogador, int numSorteado)
         
         for(i = 0; i < a_jogador->quantCartelas; i++)
         {
-            a_jogador->cartelas[i].qntPedrasMarcadas = 0;
             MarcarPedraCartela(&(a_jogador->cartelas[i]), numSorteado);
         }
         
     }
 
 int ChecarSeVenceu(tJogador *a_jogador)
+{
+    int i, completa = 0;
+    for(i = 0; i < a_jogador->quantCartelas; i++)
     {
-        int i;
-        for(i = 0; i < a_jogador->quantCartelas; i++)
-        {
-            ChecarSeCompleta(&(a_jogador->cartelas[i]));  
-        }
+        completa = ChecarSeCompleta(&(a_jogador->cartelas[i]));  
+        if(completa) return 1;
     }
+    return 0;
+}
+
+void ImprimeProgressoJogador(tJogador *a_jogador, FILE* arqsaida)
+{
+     int i;
+     fprintf(arqsaida, "Jogador:%s\n", a_jogador->nome);
+     printf("Jogador:%s\n", a_jogador->nome);
+     for(i = 0; i < a_jogador->quantCartelas; i++)
+     {
+         ImprimirProgressoCartela(&(a_jogador->cartelas[i]), arqsaida);
+         fprintf(arqsaida, "\n");
+         printf("\n");
+     }
+}

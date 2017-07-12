@@ -19,6 +19,7 @@ extern "C" {
     void InicializaCartelasDoJogador(tJogador *a_jogador, int* a_id,  int linhas, int colunas, int pedras);
     void ImprimeCartelasJogador(tJogador *a_jogador, FILE* arqcartelas);
     void MarcarPedraJogador(tJogador *a_jogador, int numSorteado);
+    void ImprimeProgressoJogador(tJogador *a_jogador, FILE* arqsaida);
     int ChecarSeVenceu(tJogador *a_jogador);
     
     

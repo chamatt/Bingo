@@ -100,10 +100,12 @@ void MarcarPedraCartela(tCartela *a_cartela, int numSorteado)
             {
                 a_cartela->cartela[j][i] = -1;
                 a_cartela->qntPedrasMarcadas += 1;
+                return;
             }
         }
         
     }
+    
 }
 
 int ChecarSeCompleta(tCartela *a_cartela){
@@ -113,14 +115,44 @@ int ChecarSeCompleta(tCartela *a_cartela){
     {
         for(j = 0; j<a_cartela->linhas; j++)
         {
-            if(a_cartela->cartela[j][i] == -1);
-            count++;
+            if(a_cartela->cartela[j][i] == -1)
+                count++;
         }
     }
     if(count == qntNumeros)
         return 1;
     return 0;
 }
+
+void ImprimirProgressoCartela(tCartela *a_cartela, FILE* arqsaida)
+{
+    int i, j;
+    fprintf(arqsaida, "Cartela ID:%d\n", a_cartela->id);
+    printf("Cartela ID:%d\n", a_cartela->id);
+    for(i = 0; i < a_cartela->linhas; i++)
+    {
+        fprintf(arqsaida, "\t|");
+        printf("\t|");
+        for(j = 0; j < a_cartela->colunas; j++)
+        {
+            if(a_cartela->cartela[i][j] == -1)
+            {
+                fprintf(arqsaida, "---|");
+                printf("---|");
+            }
+            else
+            {
+                fprintf(arqsaida, "%03d|", a_cartela->cartela[i][j]);
+                printf("%03d|", a_cartela->cartela[i][j]);
+            }
+        }
+        fprintf(arqsaida, "\n");
+        printf("\n");
+    }
+}
+
+
+
 int ObterQuantMarcada(tCartela a_cartela); 
 int EhQuantMarcada1MaiorQue2(tCartela a_cartela1, tCartela a_cartela2);
 

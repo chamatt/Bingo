@@ -45,3 +45,16 @@ void ConcatenaCaminhoVariavel(tArquivos *a_arquivos)
      strcat(a_arquivos->estatisticas_jogo, estatisticas_jogo);
 }
 
+FILE* CriaAbreArquivo(FILE* arq, char* caminho)
+{
+    arq = fopen(caminho, "w+");
+    fclose(arq);
+    arq = fopen(caminho, "a+");
+    return arq;
+}
+
+ void ImprimirNoArquivoETela(FILE* arq, char* string)
+ {
+     fprintf(arq, "%s", string);
+     printf("%s", string);
+ }

@@ -25,12 +25,13 @@ extern "C" {
     void LeConfiguracoes(tJogo *a_jogo, tArquivos *a_arquivos, FILE* config);
     int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos);
     void RealizarJogo(tJogo *a_jogo, tArquivos *a_arquivos);
+    void InicializaContadorDePedras(tJogo *a_jogo);
     void MarcarPedra(tJogo *a_jogo, int numSorteado);
     int ChecarSeJogadoresVenceram(tJogo *a_jogo);
     void ImprimirVencedores(FILE* arq, tJogo *a_jogo, int qntVenceu);
     
     
-    tJogo ImprimirProgressoJogo(tJogo a_jogo);
+    void ImprimirProgressoJogo(tJogo *a_jogo, FILE* arqsaida);
     void GerarEstatisticas(tJogo a_jogo);
     tJogo OrdenarCartelasMarcadas(tJogo a_jogo);
     

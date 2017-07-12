@@ -8,6 +8,7 @@ int main(int argc, char** argv) {
     tArquivos arquivos;
     ParametroDeInicializacao(argc, argv, &arquivos);
     CriarJogo(&jogo, &arquivos);
+    RealizarJogo(&jogo, &arquivos);
     return (EXIT_SUCCESS);
 }
 
