@@ -59,15 +59,20 @@ int ChecarSeVenceu(tJogador *a_jogador)
     return 0;
 }
 
-void ImprimeProgressoJogador(tJogador *a_jogador, FILE* arqsaida)
+void ImprimeProgressoJogador(tJogador *a_jogador)
 {
      int i;
-     fprintf(arqsaida, "Jogador:%s\n", a_jogador->nome);
+     //fprintf(arqsaida, "Jogador:%s\n", a_jogador->nome);
      printf("Jogador:%s\n", a_jogador->nome);
      for(i = 0; i < a_jogador->quantCartelas; i++)
      {
-         ImprimirProgressoCartela(&(a_jogador->cartelas[i]), arqsaida);
-         fprintf(arqsaida, "\n");
+         ImprimirProgressoCartela(&(a_jogador->cartelas[i]));
+         //fprintf(arqsaida, "\n");
          printf("\n");
      }
+}
+
+void ObterNome(char* nome, tJogador a_jogador)
+{
+     strcpy(nome, a_jogador.nome);
 }

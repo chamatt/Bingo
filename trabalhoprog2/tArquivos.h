@@ -27,10 +27,13 @@ extern "C" {
     }tArquivos;
 
  void ParametroDeInicializacao(int a_argc, char** argv, tArquivos *a_arquivos);
+ void ExibirErroNaLeituraConfig(tArquivos *a_arquivos);
+ void ExibirErroAoGerarCartelas();
+ void ExibirErroAoGerarEstatisticas();
  void CopiaCaminhoAbsoluto(char* caminhoAbsoluto, tArquivos *a_arquivos);
  void ConcatenaCaminhoVariavel(tArquivos *a_arquivos);
- FILE* CriaAbreArquivo(FILE* arq, char* caminho);
- void ImprimirNoArquivoETela(FILE* arq, char* string);
+ FILE* AbreLeArquivo(FILE* arq, char* caminho);
+ FILE* CriaAbreArquivo(FILE* arq, char* caminho, tArquivos *a_arquivos);
 
 #ifdef __cplusplus
 }

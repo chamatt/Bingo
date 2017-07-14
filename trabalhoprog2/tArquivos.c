@@ -21,6 +21,27 @@
      } 
  }
 
+ void ExibirErroNaLeituraConfig(tArquivos *a_arquivos)
+ {
+     char mensagem[1001] = "ERRO: Nao foi possível ler o arquivo <jogo_config.txt> localizado em:\n";
+     strcat(mensagem, a_arquivos->caminhoPadrao);
+     strcat(mensagem, "/input");
+     ExibirMensagemDeErro(mensagem);
+     exit(0);
+ }
+ 
+ void ExibirErroAoGerarCartelas()
+ {
+     printf("ERRO: Nao foi possível gerar arquivo com as cartelas dos jogadores.\n");
+ }
+ 
+ void ExibirErroAoGerarEstatisticas()
+ {
+     printf("ERRO: Nao foi possível gerar arquivo com as cartelas dos jogadores.\n");
+ }
+ 
+ 
+
  
  /* Copia o Caminho absoluto até a pasta onde estão os arquivos de teste  */
 void CopiaCaminhoAbsoluto(char* caminhoAbsoluto, tArquivos *a_arquivos)
@@ -45,16 +66,40 @@ void ConcatenaCaminhoVariavel(tArquivos *a_arquivos)
      strcat(a_arquivos->estatisticas_jogo, estatisticas_jogo);
 }
 
-FILE* CriaAbreArquivo(FILE* arq, char* caminho)
+ FILE* AbreLeArquivo(FILE* arq, char* caminho)
+ {
+     arq = fopen(caminho, "r");
+ }
+
+
+FILE* CriaAbreArquivo(FILE* arq, char* caminho, tArquivos *a_arquivos)
 {
     arq = fopen(caminho, "w+");
+    if(!arq)
+    {
+        if(!strcmp(caminho, a_arquivos->cartelas_jogador))
+        {
+            ExibirErroAoGerarCartelas();
+        }
+        if(!strcmp(caminho, a_arquivos->estatisticas_jogo))
+        {
+             void ExibirErroAoGerarEstatisticas();
+        }
+        exit(0);
+    }
     fclose(arq);
     arq = fopen(caminho, "a+");
+    if(!arq)
+    {
+        if(!strcmp(caminho, a_arquivos->cartelas_jogador))
+        {
+            ExibirErroAoGerarCartelas();
+        }
+        if(!strcmp(caminho, a_arquivos->estatisticas_jogo))
+        {
+            //ExibirErroAoGerar*arquivo*();
+        }
+        exit(0);
+    }
     return arq;
 }
-
- void ImprimirNoArquivoETela(FILE* arq, char* string)
- {
-     fprintf(arq, "%s", string);
-     printf("%s", string);
- }

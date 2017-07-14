@@ -50,14 +50,18 @@ int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos)
 {
     FILE* arqcartelas;
     int i;
+    arqcartelas = CriaAbreArquivo(arqcartelas, a_arquivos->cartelas_jogador, a_arquivos);
+    /*
     arqcartelas = fopen(a_arquivos->cartelas_jogador, "w+");
     fclose(arqcartelas);
     arqcartelas = fopen(a_arquivos->cartelas_jogador, "a+");
+    */
     for(i = 0; i < a_jogo->quantJogadores; i++)
     {
         ImprimeCartelasJogador(&(a_jogo->jogador[i]), arqcartelas);
         fprintf(arqcartelas, "\n");
     }
+    fclose(arqcartelas);
     
 }
 
@@ -67,9 +71,9 @@ int GerarArquivoDeCartelas(tJogo *a_jogo, tArquivos *a_arquivos)
 void RealizarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
 {
     int numSorteado, qntVenceu, i;
-    FILE* arqsaida;
+    /*FILE* arqsaida;
     arqsaida = CriaAbreArquivo(arqsaida, a_arquivos->saida);
-    /* Cria o arquivo se não existir, apaga conteúdo se existir 
+     Cria o arquivo se não existir, apaga conteúdo se existir 
      * arqsaida = fopen(a_arquivos->saida, "w+");
     fclose(arqsaida);
     arqsaida = fopen(a_arquivos->saida, "a+");
@@ -79,15 +83,14 @@ void RealizarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
     for(i = 0; i < a_jogo->pedras; i++)
     {
         numSorteado = GeraProxNumero();
-        fprintf(arqsaida, "Pedra:%d\n", numSorteado);
         printf("Pedra:%d\n", numSorteado);
-        ImprimirProgressoJogo(a_jogo, arqsaida);
+        ImprimirProgressoJogo(a_jogo);
         MarcarPedra(a_jogo, numSorteado);
         qntVenceu = ChecarSeJogadoresVenceram(a_jogo);
         if(qntVenceu> 0) break;
     }
-    ImprimirProgressoJogo(a_jogo, arqsaida);
-    ImprimirVencedores(arqsaida, a_jogo, qntVenceu);
+    ImprimirProgressoJogo(a_jogo);
+    ImprimirVencedores(a_jogo, qntVenceu);
 }
 void MarcarPedra(tJogo *a_jogo, int numSorteado)
 {
@@ -117,34 +120,21 @@ int ChecarSeJogadoresVenceram(tJogo *a_jogo)
 }
 
 
-void ImprimirVencedores(FILE* arq, tJogo *a_jogo, int qntVenceu)
+void ImprimirVencedores(tJogo *a_jogo, int qntVenceu)
 {
     int i;
     if(qntVenceu==1)
     {
-        /*
         printf("Jogador Venceu!\n");
-        fprintf(arq, "Jogador Venceu!\n");
-         */
-        ImprimirNoArquivoETela(arq, "Jogador Venceu!\n");
     }
     else
     {
-        /*
         printf("Jogadores Empataram!\n");
-        fprintf(arq, "Jogadorem Empataram!\n"); 
-         */
-        ImprimirNoArquivoETela(arq, "Jogadorem Empataram!\n");
     }
         
     for(i = 0; i < qntVenceu; i++)
     {
-        /*
         printf("%s\n", a_jogo->vencedores[i]);
-        fprintf(arq ,"%s\n", a_jogo->vencedores[i]); 
-         */
-        ImprimirNoArquivoETela(arq, a_jogo->vencedores[i]); 
-        ImprimirNoArquivoETela(arq, "\n"); 
     }
 }
 
@@ -160,14 +150,13 @@ void InicializaContadorDePedras(tJogo *a_jogo)
     }
 }
 
-void ImprimirProgressoJogo(tJogo *a_jogo, FILE* arqsaida)
+void ImprimirProgressoJogo(tJogo *a_jogo)
 {
     int i;
     for(i = 0; i < a_jogo->quantJogadores; i++)
     {
-        ImprimeProgressoJogador(&(a_jogo->jogador[i]), arqsaida);
-        ImprimirNoArquivoETela(arqsaida, "\n");
-        //fprintf(arqsaida, "\n");
+        ImprimeProgressoJogador(&(a_jogo->jogador[i]));
+        printf("\n");
     }
 }
 
