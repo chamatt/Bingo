@@ -17,7 +17,8 @@ extern "C" {
         int colunas;
         int pedrasMarcadas[900];
         tJogador jogador[20];
-        char vencedores[1001][1001];
+        char vencedores[20][1001];
+        tCartela todasCartelas[200];
     }tJogo;
     
     void ExibirMensagemDeErro(char* mensagem);
@@ -29,11 +30,10 @@ extern "C" {
     void MarcarPedra(tJogo *a_jogo, int numSorteado);
     int ChecarSeJogadoresVenceram(tJogo *a_jogo);
     void ImprimirVencedores(tJogo *a_jogo, int qntVenceu);
-    
-    
     void ImprimirProgressoJogo(tJogo *a_jogo);
+    void GerarEstatisticasJogo(tJogo *a_jogo, tArquivos *a_arquivos);
     void GerarEstatisticas(tJogo a_jogo);
-    tJogo OrdenarCartelasMarcadas(tJogo a_jogo);
+    int ObterQuantCartelasTotais(tJogo *a_jogo);
     
     
     

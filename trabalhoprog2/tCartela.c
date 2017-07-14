@@ -4,12 +4,13 @@
 #include "tCartela.h"
 #include "tGeradorAle.h"
 
-void CriarCartela(tCartela *a_cartela, int *id, int linhas, int colunas, int pedras)
+void CriarCartela(tCartela *a_cartela, int *id, int jogadorID, int linhas, int colunas, int pedras)
 {
     int qntNumeros = linhas * colunas, i, j, k, proxNum;
     a_cartela->id = *id;
     a_cartela->linhas = linhas;
     a_cartela->colunas = colunas;
+    a_cartela->jogadorDono = jogadorID;
     ReiniciaGerador(*id, pedras);
     int vetor[qntNumeros];
     for(i = 0; i < qntNumeros; i++)

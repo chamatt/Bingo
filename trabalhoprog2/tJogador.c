@@ -16,11 +16,15 @@
  {
      fscanf(config, ";%d", &(a_jogador->quantCartelas));
  }
- void InicializaCartelasDoJogador(tJogador *a_jogador, int* a_id, int a_linhas, int a_colunas, int pedras){
+ 
+ void InicializaCartelasDoJogador(tJogador *a_jogador, tCartela *todasCartelas, int* a_id, int jogadorID, int a_linhas, int a_colunas, int pedras)
+ {
      int i;
+     a_jogador->jogadorID = jogadorID;
      for(i = 0; i < a_jogador->quantCartelas; i++)
      {
-         CriarCartela(&(a_jogador->cartelas[i]), a_id, a_linhas, a_colunas, pedras);
+         CriarCartela(&(a_jogador->cartelas[i]), a_id, a_jogador->jogadorID, a_linhas, a_colunas, pedras);
+         todasCartelas[(*a_id)] = a_jogador->cartelas[i];
          (*a_id)++;
      }
  }
@@ -75,4 +79,9 @@ void ImprimeProgressoJogador(tJogador *a_jogador)
 void ObterNome(char* nome, tJogador a_jogador)
 {
      strcpy(nome, a_jogador.nome);
+}
+
+int ObterQuantCartelasJogador(tJogador *a_jogador)
+{
+    return a_jogador->quantCartelas;
 }

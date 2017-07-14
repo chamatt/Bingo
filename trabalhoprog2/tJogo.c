@@ -22,7 +22,7 @@ void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
     {
         InicializaNomeParam(config, &(a_jogo->jogador[i]));
         InicializaQuantCartelasParam(config, &(a_jogo->jogador[i]));
-        InicializaCartelasDoJogador(&(a_jogo->jogador[i]), id, a_jogo->linhas, a_jogo->colunas, a_jogo->pedras);
+        InicializaCartelasDoJogador(&(a_jogo->jogador[i]), a_jogo->todasCartelas, id, i, a_jogo->linhas, a_jogo->colunas, a_jogo->pedras);
 
     }
     GerarArquivoDeCartelas(a_jogo, a_arquivos);
@@ -161,7 +161,22 @@ void ImprimirProgressoJogo(tJogo *a_jogo)
 }
 
 
-void GerarEstatisticas(tJogo a_jogo);
-tJogo OrdenarCartelasMarcadas(tJogo a_jogo);
+void GerarEstatisticasJogo(tJogo *a_jogo, tArquivos *a_arquivos)
+{
+    int i, count;
+    int quantCartelasTotais = 0;
+    quantCartelasTotais = ObterQuantCartelasTotais(a_jogo);
+    
+}
+
+int ObterQuantCartelasTotais(tJogo *a_jogo)
+{
+    int i, total = 0;
+    for(i = 0; i < a_jogo->quantJogadores; i++)
+    {
+        total += ObterQuantCartelasJogador(&(a_jogo->jogador[i]));
+    }
+    
+}
 
 
