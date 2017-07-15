@@ -23,9 +23,6 @@ extern "C" {
      * vetor para a matriz que representa a cartela. */
     void CriarCartela(tCartela *a_cartela, int *id, int jogadorID, int linhas, int colunas, int pedras);
     
-    /* Retorna um inteiro correspondente a ID de uma cartela */
-    int ObterID(tCartela a_cartela);
-    
     /* Recebe um vetor e o ordena de acordo com a função que está sendo chamada
      * dentro dele, no caso, na ordem crescente. */
     void OrdenaVetor(int vet[], int qntNumeros);
@@ -58,6 +55,9 @@ extern "C" {
      * no momento da chamada da função em um arquivo, com os elementos que estão marcados 
      * representados por "---" e os que não estão, pelos seus respectivos números. */
     void ImprimirProgressoCartela(tCartela *a_cartela);
+    
+    /* Retorna um inteiro correspondente a ID de uma cartela */
+    int ObterID(tCartela a_cartela);
     
     /* Retorna a quantidade de elementos marcados em na cartela. */
     int ObterQuantMarcada(tCartela a_cartela);

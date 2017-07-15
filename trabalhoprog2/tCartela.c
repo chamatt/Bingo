@@ -30,7 +30,6 @@ void CriarCartela(tCartela *a_cartela, int *id, int jogadorID, int linhas, int c
     } 
 }
 
-int ObterID(tCartela a_cartela);
 void OrdenaVetor(int vet[], int qntNumeros)
 {
     OrdemCrescente(vet, qntNumeros);
@@ -133,7 +132,10 @@ void ImprimirProgressoCartela(tCartela *a_cartela)
     }
 }
 
-
+int ObterID(tCartela a_cartela)
+{
+    return a_cartela.id;
+}
 
 int ObterQuantMarcada(tCartela a_cartela)
 {

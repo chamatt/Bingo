@@ -12,7 +12,6 @@ void ExibirMensagemDeErro(char* mensagem){
 
 void CriarJogo(tJogo *a_jogo, tArquivos *a_arquivos)
 {
-    
     FILE* config;
     int i, idinit = 0;
     int* id = &idinit;
@@ -117,7 +116,6 @@ void ImprimirVencedores(tJogo *a_jogo, int qntVenceu)
     {
         printf("Jogadores Empataram!\n");
     }
-        
     for(i = 0; i < qntVenceu; i++)
     {
         printf("%s\n", a_jogo->vencedores[i]);
@@ -145,8 +143,7 @@ void ImprimirProgressoJogo(tJogo *a_jogo)
 
 
 void GerarEstatisticasJogo(tJogo *a_jogo, tArquivos *a_arquivos)
-{
-    
+{  
     int i;
     char nome[1001];
     int quantCartelasTotais = 0;
@@ -158,7 +155,7 @@ void GerarEstatisticasJogo(tJogo *a_jogo, tArquivos *a_arquivos)
     for(i = 0; i < quantCartelasTotais; i++)
     {
         ObterNome(nome, a_jogo->jogador, a_jogo->todasCartelas[i].jogadorDono);
-        fprintf(arqestatisticas , "%d - %d - %s\n", a_jogo->todasCartelas[i].qntPedrasMarcadas, a_jogo->todasCartelas[i].id, nome);
+        fprintf(arqestatisticas , "%d - %d - %s\n", ObterQuantMarcada(a_jogo->todasCartelas[i]), ObterID(a_jogo->todasCartelas[i]), nome);
     }
     fclose(arqestatisticas);
 }
@@ -186,7 +183,7 @@ int ObterQuantCartelasTotais(tJogo *a_jogo)
 
 int OrdenaCartelasEstatisticas(tJogo *a_jogo, tCartela *todasCartelas, int qntCartelas)
 {
-   int i, j, jogadorIDj, jogadorIDjmais1;
+   int i, j;
    char nomeCartelaJ[1001];
    char nomeCartelaJmais1[1001];
    tCartela aux;
