@@ -1,0 +1,4 @@
+57;500;20;20;3
+Open the Tcheka;4
+Vai dar PT;10
+Palmeiras nao tem mundial;1

@@ -1,0 +1,4 @@
+3;90;6;5;3
+Tripa Seca;3
+Geronimo da silva;1
+Fulano de Tal;2

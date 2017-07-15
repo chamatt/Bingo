@@ -6,8 +6,6 @@
 
  void ParametroDeInicializacao(int a_argc, char** argv, tArquivos *a_arquivos)
  {       
-     /* Checa se foi passado o argumento referente a localização dos arquivos, 
-      * caso contrário, sai do programa */
      if(a_argc < 2)
      {
          ExibirMensagemDeErro("ERRO: O diretorio de arquivos de configuração nao foi informado!");
@@ -37,9 +35,12 @@
  
  void ExibirErroAoGerarEstatisticas()
  {
-     printf("ERRO: Nao foi possível gerar arquivo com as cartelas dos jogadores.\n");
+     printf("ERRO: Nao foi possível gerar arquivo com as estatisticas do jogo.\n");
  }
- 
+ void ExibirErroAoGerarBonus()
+ {
+     printf("ERRO: Nao foi possível gerar arquivo bonus.\n");
+ }
  
 
  
@@ -50,7 +51,7 @@ void CopiaCaminhoAbsoluto(char* caminhoAbsoluto, tArquivos *a_arquivos)
     strcpy(a_arquivos->cartelas_jogador, caminhoAbsoluto);
     strcpy(a_arquivos->estatisticas_jogo, caminhoAbsoluto);
     strcpy(a_arquivos->jogo_config, caminhoAbsoluto);
-    strcpy(a_arquivos->saida, caminhoAbsoluto);
+    strcpy(a_arquivos->bonus, caminhoAbsoluto);
 }
 
 /* Concatena o caminho específico de cada arquivo ao final do caminho absoluto */
@@ -58,11 +59,11 @@ void ConcatenaCaminhoVariavel(tArquivos *a_arquivos)
 {
      char* jogo_config = "/input/jogo_config.txt";
      char* cartelas_jogador = "/output/cartelas_jogador.txt";
-     char* saida = "/output/saida.txt";
+     char* bonus = "/output/bonus.txt";
      char* estatisticas_jogo = "/output/estatisticas_jogo.txt";
      strcat(a_arquivos->jogo_config, jogo_config);
      strcat(a_arquivos->cartelas_jogador, cartelas_jogador);
-     strcat(a_arquivos->saida, saida);
+     strcat(a_arquivos->bonus, bonus);
      strcat(a_arquivos->estatisticas_jogo, estatisticas_jogo);
 }
 
@@ -83,7 +84,11 @@ FILE* CriaAbreArquivo(FILE* arq, char* caminho, tArquivos *a_arquivos)
         }
         if(!strcmp(caminho, a_arquivos->estatisticas_jogo))
         {
-             void ExibirErroAoGerarEstatisticas();
+            ExibirErroAoGerarEstatisticas();
+        }
+        if(!strcmp(caminho, a_arquivos->bonus))
+        {
+            ExibirErroAoGerarBonus();
         }
         exit(0);
     }
@@ -97,7 +102,7 @@ FILE* CriaAbreArquivo(FILE* arq, char* caminho, tArquivos *a_arquivos)
         }
         if(!strcmp(caminho, a_arquivos->estatisticas_jogo))
         {
-            //ExibirErroAoGerar*arquivo*();
+            ExibirErroAoGerarEstatisticas();
         }
         exit(0);
     }

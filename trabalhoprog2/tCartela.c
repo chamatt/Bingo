@@ -34,10 +34,9 @@ int ObterID(tCartela a_cartela);
 void OrdenaVetor(int vet[], int qntNumeros)
 {
     OrdemCrescente(vet, qntNumeros);
-    //OrdemDecrescente(vet, qntNumeros);
 }
 
-int OrdemCrescente (int vetor[], int qntNumeros)
+void OrdemCrescente (int vetor[], int qntNumeros)
 {
    int i, j, aux;
     for (i = 0; i < qntNumeros-1; i++) 
@@ -45,22 +44,6 @@ int OrdemCrescente (int vetor[], int qntNumeros)
         for (j = 0; j < qntNumeros-i-1; j++)
         {
             if (vetor[j] > vetor[j+1]) 
-            {
-                aux = vetor[j];
-                vetor[j] = vetor[j+1];
-                vetor[j+1] = aux;
-            }
-        }
-    }
-}
-int OrdemDecrescente (int vetor[], int qntNumeros)
-{
-   int i, j, aux;
-    for (i = 0; i < qntNumeros-1; i++) 
-    {
-        for (j = 0; j < qntNumeros-i-1; j++)
-        {
-            if (vetor[j] < vetor[j+1]) 
             {
                 aux = vetor[j];
                 vetor[j] = vetor[j+1];
@@ -85,7 +68,10 @@ void ImprimirCartelaArquivo(tCartela *a_cartela, FILE* arqcartelas)
     }
 }
 
-
+void InicializaContadorDePedrasMarcadasCartela(tCartela *a_cartela)
+{
+    a_cartela->qntPedrasMarcadas = 0;
+}
 
 
 
@@ -128,32 +114,33 @@ int ChecarSeCompleta(tCartela *a_cartela){
 void ImprimirProgressoCartela(tCartela *a_cartela)
 {
     int i, j;
-    //fprintf(arqsaida, "Cartela ID:%d\n", a_cartela->id);
     printf("Cartela ID:%d\n", a_cartela->id);
     for(i = 0; i < a_cartela->linhas; i++)
     {
-        //fprintf(arqsaida, "\t|");
         printf("\t|");
         for(j = 0; j < a_cartela->colunas; j++)
         {
             if(a_cartela->cartela[i][j] == -1)
             {
-                //fprintf(arqsaida, "---|");
                 printf("---|");
             }
             else
             {
-                //fprintf(arqsaida, "%03d|", a_cartela->cartela[i][j]);
                 printf("%03d|", a_cartela->cartela[i][j]);
             }
         }
-        //fprintf(arqsaida, "\n");
         printf("\n");
     }
 }
 
 
 
-int ObterQuantMarcada(tCartela a_cartela); 
-int EhQuantMarcada1MaiorQue2(tCartela a_cartela1, tCartela a_cartela2);
+int ObterQuantMarcada(tCartela a_cartela)
+{
+    return a_cartela.qntPedrasMarcadas;
+} 
+int EhQuantMarcada1MenorQue2(int qntMarcada1, int qntMarcada2)
+{
+    return qntMarcada1 < qntMarcada2;
+}
 

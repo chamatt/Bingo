@@ -1,0 +1,11 @@
+1001;900;7;8;10
+Tripa Seca;3
+Geronimo da silva;1
+Fulano de Tal;2
+Manos Brown;5
+Quasi Nada;2
+Chaves do Oito;8
+Seu Madruga;1
+Mano El;10
+Chica da Silva;6
+Maria Maria;3
