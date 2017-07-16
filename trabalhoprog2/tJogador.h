@@ -12,7 +12,7 @@ extern "C" {
         char nome[201];
         int jogadorID;
         int quantCartelas;
-        tCartela cartelas[200];
+        tCartela cartelas[21];
     }tJogador;
     
     /* Realiza a leitura de uma string no arquivo recebido como parâmetro,

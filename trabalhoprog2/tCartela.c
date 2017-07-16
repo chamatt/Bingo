@@ -20,7 +20,7 @@ void CriarCartela(tCartela *a_cartela, int *id, int jogadorID, int linhas, int c
     }
     OrdenaVetor(vetor, qntNumeros);
     k = 0;
-    for(int i = 0; i < colunas; i++)
+    for(i = 0; i < colunas; i++)
     {
         for(j = 0; j < linhas; j++)
         {
